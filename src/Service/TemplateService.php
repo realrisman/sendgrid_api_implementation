@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Service;
+
+use SendGrid;
+
+class TemplateService
+{
+    private $sg;
+
+    public function __construct()
+    {
+        $apiKey = $_SERVER['SENDGRID_KEY'];
+        $this->sg = new SendGrid($apiKey);
+    }
+
+    public function get()
+    {
+        $results = [];
+        try {
+            $response = $this->sg->client->templates()->get();
+            $results['status_code'] = $response->statusCode();
+            $results['message'] = $response->body();
+        } catch (Exception $e) {
+            $results['status_code'] = 500;
+            $results['message'] = json_encode($e->getMessage());
+        }
+
+        return $results;
+    }
+}
