@@ -24,4 +24,14 @@ class TemplateController
 
         return new JsonResponse(json_decode($results['message']), $results['status_code']);
     }
+
+    /**
+     * @Route("/templates/{template_id}", methods={"GET"}, name="read_template_by_id")
+     */
+    public function read($template_id): JsonResponse
+    {
+        $results = $this->templateService->read($template_id);
+
+        return new JsonResponse(json_decode($results['message']), $results['status_code']);
+    }
 }
