@@ -58,4 +58,19 @@ class TemplateService
 
         return $results;
     }
+
+    public function add($req_body)
+    {
+        $results = [];
+        try {
+            $response = $this->sg->client->templates()->post($req_body);
+            $results['status_code'] = $response->statusCode();
+            $results['message'] = $response->body();
+        } catch (Exception $e) {
+            $results['status_code'] = 500;
+            $results['message'] = json_encode($e->getMessage());
+        }
+
+        return $results;
+    }
 }

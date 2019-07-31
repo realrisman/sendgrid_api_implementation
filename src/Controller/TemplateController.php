@@ -46,4 +46,15 @@ class TemplateController
 
         return new JsonResponse(json_decode($results['message']), $results['status_code']);
     }
+
+    /**
+     * @Route("/templates", methods={"POST"}, name="add_template")
+     */
+    public function add(Request $request): JsonResponse
+    {
+        $req_body = json_decode($request->getContent(), true);
+        $results = $this->templateService->add($req_body);
+
+        return new JsonResponse(json_decode($results['message']), $results['status_code']);
+    }
 }
