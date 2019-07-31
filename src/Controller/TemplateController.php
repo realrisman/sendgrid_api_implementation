@@ -21,7 +21,7 @@ class TemplateController
      */
     public function browse(): JsonResponse
     {
-        $results = $this->templateService->get();
+        $results = $this->templateService->browse();
 
         return new JsonResponse(json_decode($results['message']), $results['status_code']);
     }

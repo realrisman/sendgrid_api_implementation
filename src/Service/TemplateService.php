@@ -14,7 +14,7 @@ class TemplateService
         $this->sg = new SendGrid($apiKey);
     }
 
-    public function get()
+    public function browse()
     {
         $results = [];
         try {
