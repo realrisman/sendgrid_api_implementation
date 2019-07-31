@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\TemplateService;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -31,6 +32,17 @@ class TemplateController
     public function read($template_id): JsonResponse
     {
         $results = $this->templateService->read($template_id);
+
+        return new JsonResponse(json_decode($results['message']), $results['status_code']);
+    }
+
+    /**
+     * @Route("/templates/{template_id}", methods={"PATCH"}, name="edit_template_by_id")
+     */
+    public function edit($template_id, Request $request): JsonResponse
+    {
+        $req_body = json_decode($request->getContent(), true);
+        $results = $this->templateService->edit($template_id, $req_body);
 
         return new JsonResponse(json_decode($results['message']), $results['status_code']);
     }
