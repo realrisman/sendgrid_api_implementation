@@ -57,4 +57,14 @@ class TemplateController
 
         return new JsonResponse(json_decode($results['message']), $results['status_code']);
     }
+
+    /**
+     * @Route("/templates/{template_id}", methods={"DELETE"}, name="delete_template_by_id")
+     */
+    public function delete($template_id): JsonResponse
+    {
+        $results = $this->templateService->delete($template_id);
+
+        return new JsonResponse(json_decode($results['message']), $results['status_code']);
+    }
 }

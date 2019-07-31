@@ -73,4 +73,19 @@ class TemplateService
 
         return $results;
     }
+
+    public function delete($template_id)
+    {
+        $results = [];
+        try {
+            $response = $this->sg->client->templates()->_($template_id)->delete();
+            $results['status_code'] = $response->statusCode();
+            $results['message'] = $response->body();
+        } catch (Exception $e) {
+            $results['status_code'] = 500;
+            $results['message'] = json_encode($e->getMessage());
+        }
+
+        return $results;
+    }
 }
