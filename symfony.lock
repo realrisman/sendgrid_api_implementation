@@ -1,4 +1,37 @@
 {
+    "doctrine/annotations": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "cb4152ebcadbe620ea2261da1a1c5a9b8cea7672"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
+    },
+    "doctrine/cache": {
+        "version": "v1.8.0"
+    },
+    "doctrine/collections": {
+        "version": "v1.6.2"
+    },
+    "doctrine/event-manager": {
+        "version": "v1.0.0"
+    },
+    "doctrine/lexer": {
+        "version": "1.1.0"
+    },
+    "doctrine/persistence": {
+        "version": "1.1.1"
+    },
+    "doctrine/reflection": {
+        "version": "v1.0.0"
+    },
+    "egulias/email-validator": {
+        "version": "2.1.10"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -7,6 +40,24 @@
     },
     "psr/log": {
         "version": "1.1.0"
+    },
+    "sendgrid/php-http-client": {
+        "version": "3.9.6"
+    },
+    "sendgrid/sendgrid": {
+        "version": "7.3.0"
+    },
+    "sensio/framework-extra-bundle": {
+        "version": "5.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.2",
+            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        },
+        "files": [
+            "config/packages/sensio_framework_extra.yaml"
+        ]
     },
     "symfony/cache": {
         "version": "v4.3.3"
@@ -88,6 +139,18 @@
     "symfony/http-kernel": {
         "version": "v4.3.3"
     },
+    "symfony/mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "6e5921f710bec05533f664e0b9a3d838545edd82"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
+    },
     "symfony/mime": {
         "version": "v4.3.3"
     },
@@ -117,6 +180,15 @@
             "config/packages/test/routing.yaml",
             "config/routes.yaml"
         ]
+    },
+    "symfony/sendgrid-mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "ed69bc442325accbf79e8c93e1ae88c9abe7fd12"
+        }
     },
     "symfony/service-contracts": {
         "version": "v1.1.5"
