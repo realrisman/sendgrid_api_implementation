@@ -17,8 +17,9 @@ class TemplateService
     public function browse()
     {
         $results = [];
+        $query_params = json_decode('{"generations": "legacy,dynamic"}');
         try {
-            $response = $this->sg->client->templates()->get();
+            $response = $this->sg->client->templates()->get(null, $query_params);
             $results['status_code'] = $response->statusCode();
             $results['message'] = $response->body();
         } catch (Exception $e) {
