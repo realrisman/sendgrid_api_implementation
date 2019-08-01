@@ -26,4 +26,15 @@ class MailController
 
         return new JsonResponse(json_decode($results['message']), $results['status_code']);
     }
+
+    /**
+     * @Route("/mail/send/queue", methods={"POST"}, name="send_mail_to_queue")
+     */
+    public function sendToQueue(Request $request): JsonResponse
+    {
+        $req_body = $request->getContent();
+        $results = $this->mailService->sendToQueue($req_body);
+
+        return new JsonResponse($results, $results['status_code']);
+    }
 }
